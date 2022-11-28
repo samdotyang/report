@@ -3,10 +3,10 @@ import Chart, { ChartConfiguration } from "chart.js/auto";
 
 export default function CardBarChart({data}: any) {
     useEffect(() => {
-		const labels = ["Pass", "Fail"]
-		const failed_case = data.filter((key: any)=> key["case_result"] == 0);
-		const passed_case = data.filter((key: any) => key["case_result"] == 1);
-		const canvas = document.getElementById("myChart") as HTMLCanvasElement | null
+        const labels = ["Pass", "Fail"]
+        const failed_case = data.filter((key: any)=> key["case_result"] == 0);
+        const passed_case = data.filter((key: any) => key["case_result"] == 1);
+        const canvas = document.getElementById("myChart") as HTMLCanvasElement | null
         const ctx = canvas?.getContext("2d");
         
         const chartData = {

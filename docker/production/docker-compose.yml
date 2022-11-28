@@ -4,6 +4,7 @@ services:
   app:
     image: docker-report
     build:
-      dockerfile: Dockerfile.production
+      context: ../../
+      dockerfile: docker/production/Dockerfile
     ports:
       - 3000:3000

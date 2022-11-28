@@ -19,7 +19,7 @@ export default function Header() {
                     <div>
                         <div className="flex flex-wrap">
                             {test.map ( data => (
-                                <CardNavHead>
+                                <CardNavHead key={data}>
                                     <div className="flex flex-wrap">
                                         <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
                                             <h5 className="uppercase font-bold text-xs">
