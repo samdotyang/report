@@ -3,7 +3,9 @@ version: "3"
 services:
   app:
     image: docker-report-dev
-    build: .
+    build: 
+      context: ../../
+      dockerfile: docker/dev/dockerfile
     ports:
       - 3000:3000
     volumes:

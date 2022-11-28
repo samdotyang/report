@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 export default function Header() {
     const router = useRouter()
-    console.log(router.pathname)
     const test = ["placeholder 1", "placeholder 2", "placeholder 3", "placeholder 4"]
     return (
         <>
