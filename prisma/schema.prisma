@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model auto_execution_result {
+  id              Int      @id @default(autoincrement())
+  country         String   @db.VarChar(2)
+  platform        String   @db.VarChar(5)
+  feature         String   @db.VarChar(30)
+  case_id         String   @db.VarChar(6)
+  create_time     DateTime @db.Timestamp(6)
+  line_number     Int
+  test_case_desc  String?  @db.VarChar(1000)
+  fail_function   String?  @db.VarChar(100)
+  step_dependency String?  @db.VarChar(100)
+  screenshot_path String?  @db.VarChar(500)
+  terminal_output String?  @db.VarChar(1000)
+  exception_msg   String?  @db.VarChar(25000)
+  log_file_path   String?  @db.VarChar(500)
+  exc_time        Float
+  build_version   Float
+  case_result     Int
+  is_valid        Int
+
+  @@unique([country, platform, feature, case_id, build_version])
+}
+
+model automation_test_run_result {
+  id            Int      @id @default(autoincrement())
+  build_version Float
+  start_time    DateTime @db.Timestamp(6)
+  end_time      DateTime @db.Timestamp(6)
+  pass          Int?
+  fail          Int?
+}

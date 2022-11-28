@@ -1,8 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
 
 export default function About() {
   return (
-    <h1>About</h1>
+    <>
+      <div className="flex flex-wrap mt-4">
+        <div className="w-full mb-12 pt-20 px-4">
+        </div>
+      </div>
+    </>
   )
 }
