@@ -1,6 +1,4 @@
-// import prisma from "components/prisma";
-import CardBarChart from "@components/Cards/CardDoughnutChart";
-import CardTableBackground from "@components/Cards/CardTableBackground";
+import CardTable from "@components/Cards/CardTable";
 import prisma from "@components/prisma"
 
 export async function getServerSideProps() {
@@ -25,7 +23,7 @@ export default function Dashboard({results}) {
         <>
             <div className="flex justify-center flex-wrap mt-4">
                 <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-                    <CardTableBackground>
+                    <CardTable>
                         <thead>
                             <tr>
                                 {Object.keys(results[0]).map( (key, _) => (
@@ -63,7 +61,7 @@ export default function Dashboard({results}) {
                         <tfoot>
 
                         </tfoot>
-                    </CardTableBackground>
+                    </CardTable>
                 </div>
             </div>
         </>

@@ -1,6 +1,7 @@
 import CardBarChart from "@components/Cards/CardDoughnutChart";
 import CardTable from "@components/Cards/CardTable";
 import prisma from "@components/prisma";
+import { v4 } from "uuid";
 
 export default function Result(result) {
     result = result.res;
@@ -15,7 +16,40 @@ export default function Result(result) {
             {/* Table data */}
             <div className="flex flex-wrap mt-4">
                 <div className="w-full xl:mb-0 px-4">
-                    <CardTable data={result}/>
+                    <CardTable>
+                    <thead>
+                            <tr>
+                                {Object.keys(result[0]).map( (key, index) => (
+                                    <th key={index} className="align-middle px-6 border border-l-0 border-r-0 text-left">
+                                        {key}
+                                    </th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {result.map( (d: any) =>
+                                <tr key={d["id"]}>
+                                    {Object.keys(d).map( (key, _) => {
+                                        var val;
+                                        if (key == "case_result") {
+                                            val = d[key]== "1" ? "Pass" : "Fail"
+                                        } else if (key == "exc_time") {
+                                            val = `${d[key]}s`
+                                        } else {
+                                            val = d[key]
+                                        }
+                                        return (
+                                            <td key={v4()} className="px-6 align-middle border-t-0 border-l-0 border-r-0 p-4">
+                                                {val}
+                                            </td>
+                                        )
+                                    }
+                                    )}
+                                </tr>
+                            )}
+                        </tbody>
+                        <tfoot></tfoot>
+                    </CardTable>
                 </div>
             </div>
         </>
