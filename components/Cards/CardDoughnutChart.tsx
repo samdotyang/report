@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Chart, { ChartConfiguration } from "chart.js/auto";
+import Chart, { ChartConfiguration, Color } from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels-4";
 
 Chart.register(ChartDataLabels);
@@ -15,9 +15,6 @@ const UpdateColor = (isDarkTheme) => {
       color: textColor
     },
     datalabels: {
-      backgroundColor: function(context) {
-        return context.dataset.backgroundColor;
-      },
       borderColor: textColor,
       borderRadius: 25,
       borderWidth: 2,
