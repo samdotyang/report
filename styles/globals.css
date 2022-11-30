@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+  body {
+    color: black;
+    background: white;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -10,4 +21,4 @@
     color: rgba(235, 236, 236);
     background: rgba(27, 28, 30, 1);
   }
-} 
+}
