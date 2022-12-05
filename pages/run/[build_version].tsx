@@ -71,8 +71,6 @@ export default function Result({results}) {
   }
 
   const handleItemClick = (item) => {
-    console.log("handleItemClick fired");
-    console.log(item);
     setItemSelected(item);
     setShowModal(true);
   }
@@ -101,7 +99,7 @@ export default function Result({results}) {
       { itemSelected ?
         <FailCaseModal data={itemSelected} show={showModal} closeClicked={handleModalClose}/> :
         <div>
-          
+
         </div>
       }
     </>

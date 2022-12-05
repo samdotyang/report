@@ -31,16 +31,13 @@ export default function Run({results, page_count}) {
   const TableWithData = ({ results, page_count }) => {
     const pageHandler = (e) => { 
       var redirect = false
-      console.log(e.target.textContent)
       if (e.target.textContent === "Next") {
         if (pageIndex < page_count) {
-          console.log("pageIndex should + 1")
           setPageIndex(pageIndex + 1);
           redirect = true;
         }
       } else if (e.target.textContent === "Previous") {
         if (pageIndex > 1) {
-          console.log("pageIndex should - 1")
           setPageIndex(pageIndex - 1);
           redirect = true;
         }

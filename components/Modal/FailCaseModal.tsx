@@ -24,7 +24,6 @@ interface FailTestCaseModalProps {
 }
 
 export const FailCaseModal = ({ data, show, closeClicked }: FailTestCaseModalProps) => {
-  console.log(data)
   return (
     <>
       {/* <!-- Main modal --> */}
