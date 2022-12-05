@@ -7,31 +7,33 @@ var chart: Chart;
 
 const UpdateColor = (isDarkTheme) => {
   const textColor = isDarkTheme == `true` ? 'white' : 'black'
-  chart.options.plugins = {
-    title: {
-      display: true,
-      text: 'Case Execution Result',
-      position: 'bottom',
-      color: textColor
-    },
-    datalabels: {
-      borderColor: textColor,
-      borderRadius: 25,
-      borderWidth: 2,
-      display: true,
-      color: textColor,
-      font: {
-        weight: 'bold'
-      },
-      padding: 6,
-    },
-    legend: {
-      labels: {
+  if (chart != undefined) {
+    chart.options.plugins = {
+      title: {
+        display: true,
+        text: 'Case Execution Result',
+        position: 'bottom',
         color: textColor
+      },
+      datalabels: {
+        borderColor: textColor,
+        borderRadius: 25,
+        borderWidth: 2,
+        display: true,
+        color: textColor,
+        font: {
+          weight: 'bold'
+        },
+        padding: 6,
+      },
+      legend: {
+        labels: {
+          color: textColor
+        }
       }
     }
+    chart.update();
   }
-  chart.update();
 };
 
 function CardDoughnutChart({data}) {
