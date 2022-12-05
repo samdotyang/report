@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import Chart, { ChartConfiguration, Color } from "chart.js/auto";
+import Chart, { ChartConfiguration } from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels-4";
 
 Chart.register(ChartDataLabels);
 var chart: Chart;
 
-const UpdateColor = (isDarkTheme) => {
+const UpdateChartColor = (isDarkTheme) => {
   const textColor = isDarkTheme == `true` ? 'white' : 'black'
   if (chart != undefined) {
     chart.options.plugins = {
@@ -109,4 +109,4 @@ function CardDoughnutChart({data}) {
   );
 }
 
-export { UpdateColor, CardDoughnutChart };
+export { UpdateChartColor, CardDoughnutChart };

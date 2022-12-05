@@ -1,4 +1,4 @@
-import { UpdateColor } from "@components/Cards/CardDoughnutChart";
+import { UpdateChartColor } from "@components/Cards/CardDoughnutChart";
 import { ThemeContext } from "@components/Theme";
 import { useContext } from "react";
 import { MdDarkMode } from "react-icons/md";
@@ -11,7 +11,7 @@ export default function ToggleThemeHeader() {
 
   function toggleThemeHandler(): void {
     themeContext.toggleThemeHandler();
-    UpdateColor(`${localStorage.getItem("isDarkTheme")}`);
+    UpdateChartColor(`${localStorage.getItem("isDarkTheme")}`);
   }
 
   return (

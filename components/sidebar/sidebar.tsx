@@ -2,17 +2,18 @@ import React, { useEffect, useState, useContext } from 'react';
 import SidebarNav from '@components/Sidebar/SidebarNav';
 import SidebarHeader from './SidebarHeader';
 import { FaBars, FaTimes } from "react-icons/fa";
-import { UpdateColor } from "@components/Cards/CardDoughnutChart";
+import { UpdateChartColor } from "@components/Cards/CardDoughnutChart";
 import { ThemeContext } from "@components/Theme";
 import { MdDarkMode } from "react-icons/md";
 import { ThemeSwitch } from '@components/Theme/ThemeSwitch';
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState("hidden");
-  var isDarkTheme;
+  const [isDarkTheme, setIsDarkTheme] = useState(`true`);
 
   useEffect(() => {
-    isDarkTheme = localStorage.getItem("isDarkTheme")!;
+    setIsDarkTheme(localStorage.getItem("isDarkTheme")!);
+    return () => {};
   }, [])
 
   const themeContext: { 
@@ -20,9 +21,15 @@ export default function Sidebar() {
     toggleThemeHandler: () => void
   } = useContext(ThemeContext)
 
-  function toggleThemeHandler(): void {
+  // function toggleThemeHandler(): void {
+  //   themeContext.toggleThemeHandler();
+  //   UpdateChartColor(`${localStorage.getItem("isDarkTheme")}`);
+  // }
+
+  const switchHandler = (e) => {
     themeContext.toggleThemeHandler();
-    UpdateColor(`${localStorage.getItem("isDarkTheme")}`);
+    setIsDarkTheme(`${localStorage.getItem("isDarkTheme")}`)
+    UpdateChartColor(`${localStorage.getItem("isDarkTheme")}`)
   }
 
   return (
@@ -76,12 +83,8 @@ export default function Sidebar() {
           <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
           <button
             type="button"
-            // className="py-1 sm:py-2.5 px-2 sm:px-5 mr-2 bg-zinc-800 text-white dark:bg-zinc-200 dark:text-black rounded"
-            onClick={toggleThemeHandler}
           >
-            {/* <MdBrightnessMedium /> */}
-            <MdDarkMode className="text-lg rounded dark:text-white text-black" />
-            <ThemeSwitch />
+            <ThemeSwitch isDarkTheme={isDarkTheme === `true` ? true : false} onchangeHandler={switchHandler}/>
           </button>
         </div>
         </div>

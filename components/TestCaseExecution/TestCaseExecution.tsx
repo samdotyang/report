@@ -104,7 +104,7 @@ export const TestCaseExecution = ({TestCaseExecutions, ItemClicked}: TestCaseExe
   } else {
     return (
       <>
-        <h4>No data to show</h4>
+        <h4 className="text-black dark:text-white">No data to show</h4>
       </>
     )
   }
