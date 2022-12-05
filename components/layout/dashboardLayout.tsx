@@ -18,7 +18,7 @@ export default function DashboardLayout ({children}: PropsWithChildren) {
 
       <div className="relative md:ml-64 bg-mac-light-background dark:bg-mac-dark-background h-screen">
         {/* <Header /> */}
-        <ToggleThemeHeader />
+        {/* <ToggleThemeHeader /> */}
         {children}
         <Footer />
         {/* <main className="container mx-auto px-4 top-5 md:px-10 w-full -m-24">

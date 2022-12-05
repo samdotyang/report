@@ -1,7 +1,7 @@
 import { UpdateColor } from "@components/Cards/CardDoughnutChart";
 import { ThemeContext } from "@components/Theme";
 import { useContext } from "react";
-import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
 
 export default function ToggleThemeHeader() {
   const themeContext: { 
@@ -28,6 +28,9 @@ export default function ToggleThemeHeader() {
           </button>
         </div>
       </nav>
+      <div className="relative md:pt-32 pb-6 pt-12">
+          <div className="px-4 md:px-10 mx-auto w-full"></div>
+      </div>
     </>
   )
 }
