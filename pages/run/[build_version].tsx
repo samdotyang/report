@@ -3,7 +3,7 @@ import { CardDoughnutChart } from "@components/Cards/CardDoughnutChart";
 import { prisma } from "database/prisma";
 import TestCaseExecution from "@components/TestCaseExecution";
 import Search from "@components/Search";
-import { Modal } from "@components/Modal";
+import { FailCaseModal } from "@components/Modal";
 
 async function fetchWithBuildVersion(build_version) {
   const result = await prisma.auto_execution_result.findMany({
@@ -99,7 +99,7 @@ export default function Result({results}) {
         </div>
       </div>
       { itemSelected ?
-        <Modal data={itemSelected} show={showModal} closeClicked={handleModalClose}/> :
+        <FailCaseModal data={itemSelected} show={showModal} closeClicked={handleModalClose}/> :
         <div>
           
         </div>

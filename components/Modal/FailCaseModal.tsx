@@ -14,6 +14,7 @@ export interface TestCaseFailedInfo {
   line_number: number,
   fail_function: string,
   terminal_output: string,    
+  log_file_path: string,
 }
 
 interface FailTestCaseModalProps {
@@ -22,15 +23,15 @@ interface FailTestCaseModalProps {
   closeClicked,
 }
 
-export const Modal = ({ data, show, closeClicked }: FailTestCaseModalProps) => {
+export const FailCaseModal = ({ data, show, closeClicked }: FailTestCaseModalProps) => {
   console.log(data)
   return (
     <>
       {/* <!-- Main modal --> */}
-      <div id="defaultModal" tabIndex={-1} aria-hidden="true" className={`${show ? "": "hidden"} overflow-y-auto overflow-x-hidden absolute top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full`}>
+      <div id="defaultModal" tabIndex={-1} aria-hidden="true" className={`${show ? "": "hidden"} overflow-y-auto overflow-x-hidden absolute top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full bg-gray-500/40 dark:bg-mac-dark/50`}>
         <div className="relative w-full max-w-2xl h-full md:h-auto m-auto">
           {/* <!-- Modal content --> */}
-          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <div className="relative bg-white border border-black dark:border-gray-700 rounded-lg shadow dark:bg-mac-dark">
             {/* <!-- Modal header --> */}
             <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -45,11 +46,18 @@ export const Modal = ({ data, show, closeClicked }: FailTestCaseModalProps) => {
             {/* <!-- Modal body --> */}
             <ModalBody>
               Build Version: {data.build_version}<p></p>
+              <br></br>
+              Line Number: {data.line_number}<p></p>
+              <br></br>
               Failed Function: {data.fail_function}<p></p>
+              <br></br>
               Terminal Output: {data ? data.terminal_output : ""}<p></p>
+              <br></br>
             </ModalBody>
             {/* <!-- Modal footer --> */}
-            <ModalFooter />
+            <ModalFooter>
+              Log: {data.log_file_path}
+            </ModalFooter>
           </div>
         </div>
       </div>

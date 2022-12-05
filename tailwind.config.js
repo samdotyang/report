@@ -18,6 +18,8 @@ module.exports = {
         'mac-light-card': 'rgba(246, 247, 248)',
         'mac-dark-background': 'rgba(29, 31, 33)',
         'mac-light-background': 'rgba(255, 255, 255)',
+        "mac-dark": 'rgba(29, 32, 37)',
+        "mac-light": 'rgba(255, 255, 255)',
       },
     },
   },

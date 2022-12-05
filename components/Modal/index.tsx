@@ -1,3 +1,3 @@
-import { Modal } from "./Modal";
+import { FailCaseModal } from "./FailCaseModal";
 
-export { Modal };
+export { FailCaseModal };
