@@ -30,21 +30,29 @@ export default function Run({results, page_count}) {
   const [pageIndex, setPageIndex] = useState(1);
   const TableWithData = ({ results, page_count }) => {
     const pageHandler = (e) => { 
+      var redirect = false
+      console.log(e.target.textContent)
       if (e.target.textContent === "Next") {
         if (pageIndex < page_count) {
+          console.log("pageIndex should + 1")
           setPageIndex(pageIndex + 1);
+          redirect = true;
         }
       } else if (e.target.textContent === "Previous") {
         if (pageIndex > 1) {
+          console.log("pageIndex should - 1")
           setPageIndex(pageIndex - 1);
+          redirect = true;
         }
       } else {
         if (pageIndex != e.target.textContent) {
           setPageIndex(parseInt(e.target.textContent!));
+          redirect = true;
         }
       }
-      
-      if (pageIndex != e.target.textContent) {
+
+      // Should redirect the page
+      if (redirect) {
         if (router.asPath.includes("?page")) {
           router.replace(`${router.asPath.split("?")[0]}?page=${pageIndex}`)
         } else {

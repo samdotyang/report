@@ -73,7 +73,7 @@ export const TestCaseExecution = ({TestCaseExecutions, ItemClicked}: TestCaseExe
                     {execution.exc_time}s
                   </td>
                   <td className="text-black dark:text-white px-6 align-middle border-t-0 border-l-0 border-r-0 p-4">
-                    {execution.case_result == "1" ? "Pass" : <button type="button" data-modal-toggle="defaultModal" onClick={() => {handleItemClick(execution)}}>Fail</button>}
+                    {execution.case_result == "1" ? "Pass" : <button type="button" className="underline hover:underline-offset-4" data-modal-toggle="defaultModal" onClick={() => {handleItemClick(execution)}}>Fail</button>}
                   </td>
 
                   {/* {Object.keys(execution).map( (key, _) => {
