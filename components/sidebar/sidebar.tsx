@@ -80,13 +80,9 @@ export default function Sidebar() {
         </div>
         <div className='sticky top-[100vh]'>
           {/* Footer */}
-          <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
-          <button
-            type="button"
-          >
+          <div className="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
             <ThemeSwitch isDarkTheme={isDarkTheme === `true` ? true : false} onchangeHandler={switchHandler}/>
-          </button>
-        </div>
+          </div>
         </div>
       </div>
       
