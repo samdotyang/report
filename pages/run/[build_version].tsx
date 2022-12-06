@@ -98,9 +98,7 @@ export default function Result({results}) {
       </div>
       { itemSelected ?
         <FailCaseModal data={itemSelected} show={showModal} closeClicked={handleModalClose}/> :
-        <div>
-
-        </div>
+        <div></div>
       }
     </>
   )

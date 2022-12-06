@@ -15,6 +15,7 @@ export interface TestCaseFailedInfo {
   fail_function: string,
   terminal_output: string,    
   log_file_path: string,
+  step_dependency: string,
 }
 
 interface FailTestCaseModalProps {
@@ -48,10 +49,15 @@ export const FailCaseModal = ({ data, show, closeClicked }: FailTestCaseModalPro
               <br></br>
               Line Number: {data.line_number}<p></p>
               <br></br>
+              Description: {data.test_case_desc}<p></p>
+              <br></br>
               Failed Function: {data.fail_function}<p></p>
               <br></br>
-              Terminal Output: {data ? data.terminal_output : ""}<p></p>
+              Step Dependency: {data.step_dependency}<p></p>
               <br></br>
+              Terminal Output: {data.terminal_output}<p></p>
+              <br></br>
+              Execution Time: {data.exc_time}s
             </ModalBody>
             {/* <!-- Modal footer --> */}
             <ModalFooter>
