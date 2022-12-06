@@ -57,11 +57,13 @@ export const FailCaseModal = ({ data, show, closeClicked }: FailTestCaseModalPro
               <br></br>
               Terminal Output: {data.terminal_output}<p></p>
               <br></br>
-              Execution Time: {data.exc_time}s
+              Execution Time: {data.exc_time}s<p></p>
+              <br></br>
+              Log: {data.log_file_path}
             </ModalBody>
             {/* <!-- Modal footer --> */}
             <ModalFooter>
-              Log: {data.log_file_path}
+              This is a footer
             </ModalFooter>
           </div>
         </div>

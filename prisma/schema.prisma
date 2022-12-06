@@ -37,4 +37,5 @@ model automation_test_run_result {
   end_time      DateTime @db.Timestamp(6)
   pass          Int?
   fail          Int?
+  title         String?  @db.VarChar(1)
 }
